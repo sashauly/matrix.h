@@ -1,6 +1,6 @@
 CC=gcc
 
-STDFLAGS=-Wall -Werror -Wextra -std=c11 #-fsanitize=address
+STDFLAGS=-Wall -Werror -Wextra -std=c11 #-fsanitize=address -g
 TST_CFLAGS:= $(STDFLAGS) -g
 GCOV_FLAGS?=-fprofile-arcs -ftest-coverage
 LINUX_FLAGS=-lsubunit -lrt -lpthread -lm
@@ -76,6 +76,7 @@ clean_test:
 	rm -rf *.info
 	rm -rf test
 	rm -rf report
+	rm -rf *.dSYM
 
 clean: clean_lib clean_lib clean_test clean_obj
 	rm -rf unit_test

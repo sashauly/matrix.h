@@ -29,7 +29,7 @@ void run_testcase(Suite *testcase) {
   srunner_run_all(sr, CK_NORMAL);
 
   srunner_free(sr);
-  sleep(1);
+  // sleep(1);
 }
 
 double get_rand(double min, double max) {
