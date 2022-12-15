@@ -2,7 +2,7 @@
 
 int s21_mult_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
   int res = 0;
-  if (A->rows > 0 && B->rows > 0 && A->columns > 0 && B->columns > 0) {
+  if (is_correct(A) && is_correct(B)) {
     if (A->columns == B->rows) {
       res = s21_create_matrix(A->rows, B->columns, result);
       if (res == OK)

@@ -1,5 +1,4 @@
 CC=gcc
-
 STDFLAGS=-Wall -Werror -Wextra -std=c11 #-fsanitize=address -g
 TST_CFLAGS:= $(STDFLAGS) -g
 GCOV_FLAGS?=-fprofile-arcs -ftest-coverage

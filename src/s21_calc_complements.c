@@ -2,14 +2,14 @@
 
 int s21_calc_complements(matrix_t *A, matrix_t *result) {
   int res = OK;
-  if (A->rows > 0 && A->columns > 0) {
+  if (is_correct(A)) {
     if (A->rows == A->columns && A->rows != 1) {
       int n = A->rows;
       matrix_t tmp = {0};
       int codec1 = 0, codec2 = 0;
       codec1 = s21_create_matrix(A->rows - 1, A->columns - 1, &tmp);
-      if (codec1) codec2 = s21_create_matrix(n, n, result);
-      if (codec1 && codec2) {
+      if (codec1 == OK) codec2 = s21_create_matrix(n, n, result);
+      if (codec1 == OK && codec2 == OK) {
         for (int i = 0; i < n; ++i) {
           for (int j = 0; j < n; ++j) {
             double determinant = 0;

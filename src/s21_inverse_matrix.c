@@ -2,16 +2,15 @@
 
 int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
   int res = OK;
-  if (A->rows > 0 && A->columns > 0) {
+  if (is_correct(A)) {
     if (A->rows == A->columns) {
       matrix_t tmp = {0};
       double determinant = 0;
-
       s21_determinant(A, &determinant);
       if (fabs(determinant) > 1e-6) {
         if (A->rows == 1) {
           int codec = s21_create_matrix(A->rows, A->rows, result);
-          if (codec) result->matrix[0][0] = 1.0 / A->matrix[0][0];
+          if (codec == OK) result->matrix[0][0] = 1.0 / A->matrix[0][0];
         } else {
           s21_calc_complements(A, result);
           s21_transpose(result, &tmp);

@@ -34,6 +34,16 @@ START_TEST(create_3) {
 }
 END_TEST
 
+START_TEST(create_4) {
+  const int rows = 1;
+  const int cols = 1;
+
+  matrix_t m = {0};
+  ck_assert_int_eq(s21_create_matrix(rows, cols, &m), OK);
+  s21_remove_matrix(&m);
+}
+END_TEST
+
 Suite* suite_create_matrix(void) {
   Suite* s = suite_create("suite_create_matrix");
   TCase* tc = tcase_create("case_create_matrix");
@@ -41,6 +51,7 @@ Suite* suite_create_matrix(void) {
   tcase_add_test(tc, create_1);
   tcase_add_test(tc, create_2);
   tcase_add_test(tc, create_3);
+  tcase_add_test(tc, create_4);
 
   suite_add_tcase(s, tc);
   return s;

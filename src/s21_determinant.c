@@ -4,7 +4,7 @@ int s21_determinant(matrix_t *A, double *result) {
   int res = OK;
   matrix_t tmp = {0};
   *result = 0;
-  if (A->rows > 0 && A->columns > 0) {
+  if (is_correct(A)) {
     if (A->rows == A->columns) {
       res = s21_create_matrix(A->rows, A->rows, &tmp);
       if (res == OK) {

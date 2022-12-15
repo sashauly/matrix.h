@@ -3,8 +3,6 @@
 int s21_create_matrix(int rows, int columns, matrix_t *result) {
   int res = OK;
   if (rows > 0 && columns > 0) {
-    result->rows = rows;
-    result->columns = columns;
     result->matrix = (double **)calloc(
         1, rows * sizeof(double *) + columns * rows * sizeof(double));
     if (result->matrix) {
@@ -18,5 +16,7 @@ int s21_create_matrix(int rows, int columns, matrix_t *result) {
   } else {
     res = INCORRECT_MATRIX;
   }
+  result->rows = rows;
+  result->columns = columns;
   return res;
 }
